@@ -1,0 +1,617 @@
+2026-03-19 23:14:53 - INFO - SQL: SELECT TOP 5 CustomerID, CompanyName, Country FROM Customers
+2026-03-19 23:14:53 - INFO - Query execution took 0.0021 seconds
+2026-03-19 23:16:58 - INFO - Question: Show me top 5 orders with customer company names and order dates
+2026-03-19 23:17:01 - INFO - Gemini response took 3.5832 seconds
+2026-03-19 23:18:50 - INFO - SQL: SELECT TOP 5 CustomerID, CompanyName, Country FROM Customers
+2026-03-19 23:18:50 - INFO - Query execution took 0.0032 seconds
+2026-03-19 23:45:05 - INFO - SQL: SELECT TOP 5 CustomerID, CompanyName, Country FROM Customers
+2026-03-19 23:45:05 - INFO - Query execution took 0.0032 seconds
+2026-03-19 23:45:05 - INFO - {'CustomerID': 'ALFKI', 'CompanyName': 'Alfreds Futterkiste', 'Country': 'Germany'}
+2026-03-19 23:45:05 - INFO - {'CustomerID': 'ANATR', 'CompanyName': 'Ana Trujillo Emparedados y helados', 'Country': 'Mexico'}
+2026-03-19 23:45:05 - INFO - {'CustomerID': 'ANTON', 'CompanyName': 'Antonio Moreno Taquería', 'Country': 'Mexico'}
+2026-03-19 23:45:05 - INFO - {'CustomerID': 'AROUT', 'CompanyName': 'Around the Horn', 'Country': 'UK'}
+2026-03-19 23:45:05 - INFO - {'CustomerID': 'BERGS', 'CompanyName': 'Berglunds snabbköp', 'Country': 'Sweden'}
+2026-03-19 23:45:05 - INFO - Rows returned: 5
+2026-03-19 23:45:05 - INFO - Query execution time: 0.003216981887817383 seconds
+2026-03-19 23:46:14 - INFO - SQL: SELECT TOP 5 CustomerID, CompanyName, Country FROM Customers
+2026-03-19 23:46:14 - INFO - Query execution took 0.0016 seconds
+2026-03-19 23:46:14 - INFO - {'CustomerID': 'ALFKI', 'CompanyName': 'Alfreds Futterkiste', 'Country': 'Germany'}
+2026-03-19 23:46:14 - INFO - {'CustomerID': 'ANATR', 'CompanyName': 'Ana Trujillo Emparedados y helados', 'Country': 'Mexico'}
+2026-03-19 23:46:14 - INFO - {'CustomerID': 'ANTON', 'CompanyName': 'Antonio Moreno Taquería', 'Country': 'Mexico'}
+2026-03-19 23:46:14 - INFO - {'CustomerID': 'AROUT', 'CompanyName': 'Around the Horn', 'Country': 'UK'}
+2026-03-19 23:46:14 - INFO - {'CustomerID': 'BERGS', 'CompanyName': 'Berglunds snabbköp', 'Country': 'Sweden'}
+2026-03-19 23:46:14 - INFO - Rows returned: 5
+2026-03-19 23:46:14 - INFO - Query execution time: 0.0015881061553955078 seconds
+2026-03-19 23:47:29 - INFO - SQL: SELECT TOP 5 CustomerID, CompanyName, Country FROM Customers
+2026-03-19 23:47:29 - INFO - Query execution took 0.0022 seconds
+2026-03-19 23:47:29 - INFO - {'CustomerID': 'ALFKI', 'CompanyName': 'Alfreds Futterkiste', 'Country': 'Germany'}
+2026-03-19 23:47:29 - INFO - {'CustomerID': 'ANATR', 'CompanyName': 'Ana Trujillo Emparedados y helados', 'Country': 'Mexico'}
+2026-03-19 23:47:29 - INFO - {'CustomerID': 'ANTON', 'CompanyName': 'Antonio Moreno Taquería', 'Country': 'Mexico'}
+2026-03-19 23:47:29 - INFO - {'CustomerID': 'AROUT', 'CompanyName': 'Around the Horn', 'Country': 'UK'}
+2026-03-19 23:47:29 - INFO - {'CustomerID': 'BERGS', 'CompanyName': 'Berglunds snabbköp', 'Country': 'Sweden'}
+2026-03-19 23:47:29 - INFO - Rows returned: 5
+2026-03-19 23:47:29 - INFO - Query execution time: 0.002160310745239258 seconds
+2026-03-19 23:50:31 - INFO - Schema loaded:
+Categories:
+  - CategoryID (INTEGER)
+  - CategoryName (NVARCHAR(15) COLLATE "SQL_Latin1_General_CP1_CI_AS")
+  - Description (NTEXT)
+  - Picture (IMAGE)
+  Primary Key: CategoryID
+
+CustomerCustomerDemo:
+  - CustomerID (NCHAR(5) COLLATE "SQL_Latin1_General_CP1_CI_AS")
+  - CustomerTypeID (NCHAR(10) COLLATE "SQL_Latin1_General_CP1_CI_AS")
+  Primary Key: CustomerID, CustomerTypeID
+  FK: CustomerCustomerDemo.CustomerTypeID -> CustomerDemographics.CustomerTypeID
+  FK: CustomerCustomerDemo.CustomerID -> Customers.CustomerID
+
+CustomerDemographics:
+  - CustomerTypeID (NCHAR(10) COLLATE "SQL_Latin1_General_CP1_CI_AS")
+  - CustomerDesc (NTEXT)
+  Primary Key: CustomerTypeID
+
+Customers:
+  - CustomerID (NCHAR(5) COLLATE "SQL_Latin1_General_CP1_CI_AS")
+  - CompanyName (NVARCHAR(40) COLLATE "SQL_Latin1_General_CP1_CI_AS")
+  - ContactName (NVARCHAR(30) COLLATE "SQL_Latin1_General_CP1_CI_AS")
+  - ContactTitle (NVARCHAR(30) COLLATE "SQL_Latin1_General_CP1_CI_AS")
+  - Address (NVARCHAR(60) COLLATE "SQL_Latin1_General_CP1_CI_AS")
+  - City (NVARCHAR(15) COLLATE "SQL_Latin1_General_CP1_CI_AS")
+  - Region (NVARCHAR(15) COLLATE "SQL_Latin1_General_CP1_CI_AS")
+  - PostalCode (NVARCHAR(10) COLLATE "SQL_Latin1_General_CP1_CI_AS")
+  - Country (NVARCHAR(15) COLLATE "SQL_Latin1_General_CP1_CI_AS")
+  - Phone (NVARCHAR(24) COLLATE "SQL_Latin1_General_CP1_CI_AS")
+  - Fax (NVARCHAR(24) COLLATE "SQL_Latin1_General_CP1_CI_AS")
+  Primary Key: CustomerID
+
+Employees:
+  - EmployeeID (INTEGER)
+  - LastName (NVARCHAR(20) COLLATE "SQL_Latin1_General_CP1_CI_AS")
+  - FirstName (NVARCHAR(10) COLLATE "SQL_Latin1_General_CP1_CI_AS")
+  - Title (NVARCHAR(30) COLLATE "SQL_Latin1_General_CP1_CI_AS")
+  - TitleOfCourtesy (NVARCHAR(25) COLLATE "SQL_Latin1_General_CP1_CI_AS")
+  - BirthDate (DATETIME)
+  - HireDate (DATETIME)
+  - Address (NVARCHAR(60) COLLATE "SQL_Latin1_General_CP1_CI_AS")
+  - City (NVARCHAR(15) COLLATE "SQL_Latin1_General_CP1_CI_AS")
+  - Region (NVARCHAR(15) COLLATE "SQL_Latin1_General_CP1_CI_AS")
+  - PostalCode (NVARCHAR(10) COLLATE "SQL_Latin1_General_CP1_CI_AS")
+  - Country (NVARCHAR(15) COLLATE "SQL_Latin1_General_CP1_CI_AS")
+  - HomePhone (NVARCHAR(24) COLLATE "SQL_Latin1_General_CP1_CI_AS")
+  - Extension (NVARCHAR(4) COLLATE "SQL_Latin1_General_CP1_CI_AS")
+  - Photo (IMAGE)
+  - Notes (NTEXT)
+  - ReportsTo (INTEGER)
+  - PhotoPath (NVARCHAR(255) COLLATE "SQL_Latin1_General_CP1_CI_AS")
+  Primary Key: EmployeeID
+  FK: Employees.ReportsTo -> Employees.EmployeeID
+
+EmployeeTerritories:
+  - EmployeeID (INTEGER)
+  - TerritoryID (NVARCHAR(20) COLLATE "SQL_Latin1_General_CP1_CI_AS")
+  Primary Key: EmployeeID, TerritoryID
+  FK: EmployeeTerritories.EmployeeID -> Employees.EmployeeID
+  FK: EmployeeTerritories.TerritoryID -> Territories.TerritoryID
+
+Order Details:
+  - OrderID (INTEGER)
+  - ProductID (INTEGER)
+  - UnitPrice (MONEY)
+  - Quantity (SMALLINT)
+  - Discount (REAL)
+  Primary Key: OrderID, ProductID
+  FK: Order Details.OrderID -> Orders.OrderID
+  FK: Order Details.ProductID -> Products.ProductID
+
+Orders:
+  - OrderID (INTEGER)
+  - CustomerID (NCHAR(5) COLLATE "SQL_Latin1_General_CP1_CI_AS")
+  - EmployeeID (INTEGER)
+  - OrderDate (DATETIME)
+  - RequiredDate (DATETIME)
+  - ShippedDate (DATETIME)
+  - ShipVia (INTEGER)
+  - Freight (MONEY)
+  - ShipName (NVARCHAR(40) COLLATE "SQL_Latin1_General_CP1_CI_AS")
+  - ShipAddress (NVARCHAR(60) COLLATE "SQL_Latin1_General_CP1_CI_AS")
+  - ShipCity (NVARCHAR(15) COLLATE "SQL_Latin1_General_CP1_CI_AS")
+  - ShipRegion (NVARCHAR(15) COLLATE "SQL_Latin1_General_CP1_CI_AS")
+  - ShipPostalCode (NVARCHAR(10) COLLATE "SQL_Latin1_General_CP1_CI_AS")
+  - ShipCountry (NVARCHAR(15) COLLATE "SQL_Latin1_General_CP1_CI_AS")
+  Primary Key: OrderID
+  FK: Orders.CustomerID -> Customers.CustomerID
+  FK: Orders.EmployeeID -> Employees.EmployeeID
+  FK: Orders.ShipVia -> Shippers.ShipperID
+
+Products:
+  - ProductID (INTEGER)
+  - ProductName (NVARCHAR(40) COLLATE "SQL_Latin1_General_CP1_CI_AS")
+  - SupplierID (INTEGER)
+  - CategoryID (INTEGER)
+  - QuantityPerUnit (NVARCHAR(20) COLLATE "SQL_Latin1_General_CP1_CI_AS")
+  - UnitPrice (MONEY)
+  - UnitsInStock (SMALLINT)
+  - UnitsOnOrder (SMALLINT)
+  - ReorderLevel (SMALLINT)
+  - Discontinued (BIT)
+  Primary Key: ProductID
+  FK: Products.CategoryID -> Categories.CategoryID
+  FK: Products.SupplierID -> Suppliers.SupplierID
+
+Region:
+  - RegionID (INTEGER)
+  - RegionDescription (NCHAR(50) COLLATE "SQL_Latin1_General_CP1_CI_AS")
+  Primary Key: RegionID
+
+Shippers:
+  - ShipperID (INTEGER)
+  - CompanyName (NVARCHAR(40) COLLATE "SQL_Latin1_General_CP1_CI_AS")
+  - Phone (NVARCHAR(24) COLLATE "SQL_Latin1_General_CP1_CI_AS")
+  Primary Key: ShipperID
+
+Suppliers:
+  - SupplierID (INTEGER)
+  - CompanyName (NVARCHAR(40) COLLATE "SQL_Latin1_General_CP1_CI_AS")
+  - ContactName (NVARCHAR(30) COLLATE "SQL_Latin1_General_CP1_CI_AS")
+  - ContactTitle (NVARCHAR(30) COLLATE "SQL_Latin1_General_CP1_CI_AS")
+  - Address (NVARCHAR(60) COLLATE "SQL_Latin1_General_CP1_CI_AS")
+  - City (NVARCHAR(15) COLLATE "SQL_Latin1_General_CP1_CI_AS")
+  - Region (NVARCHAR(15) COLLATE "SQL_Latin1_General_CP1_CI_AS")
+  - PostalCode (NVARCHAR(10) COLLATE "SQL_Latin1_General_CP1_CI_AS")
+  - Country (NVARCHAR(15) COLLATE "SQL_Latin1_General_CP1_CI_AS")
+  - Phone (NVARCHAR(24) COLLATE "SQL_Latin1_General_CP1_CI_AS")
+  - Fax (NVARCHAR(24) COLLATE "SQL_Latin1_General_CP1_CI_AS")
+  - HomePage (NTEXT)
+  Primary Key: SupplierID
+
+Territories:
+  - TerritoryID (NVARCHAR(20) COLLATE "SQL_Latin1_General_CP1_CI_AS")
+  - TerritoryDescription (NCHAR(50) COLLATE "SQL_Latin1_General_CP1_CI_AS")
+  - RegionID (INTEGER)
+  Primary Key: TerritoryID
+  FK: Territories.RegionID -> Region.RegionID
+
+2026-03-19 23:50:31 - INFO - SQL: SELECT TOP 5 CustomerID, CompanyName, Country FROM Customers
+2026-03-19 23:50:31 - INFO - Query execution took 0.0016 seconds
+2026-03-19 23:50:31 - INFO - {'CustomerID': 'ALFKI', 'CompanyName': 'Alfreds Futterkiste', 'Country': 'Germany'}
+2026-03-19 23:50:31 - INFO - {'CustomerID': 'ANATR', 'CompanyName': 'Ana Trujillo Emparedados y helados', 'Country': 'Mexico'}
+2026-03-19 23:50:31 - INFO - {'CustomerID': 'ANTON', 'CompanyName': 'Antonio Moreno Taquería', 'Country': 'Mexico'}
+2026-03-19 23:50:31 - INFO - {'CustomerID': 'AROUT', 'CompanyName': 'Around the Horn', 'Country': 'UK'}
+2026-03-19 23:50:31 - INFO - {'CustomerID': 'BERGS', 'CompanyName': 'Berglunds snabbköp', 'Country': 'Sweden'}
+2026-03-19 23:50:31 - INFO - Rows returned: 5
+2026-03-19 23:50:31 - INFO - Query execution time: 0.0016140937805175781 seconds
+2026-03-19 23:52:06 - INFO - Question: Show me top 5 orders with customer company names and order dates
+2026-03-19 23:52:08 - INFO - Gemini response took 1.8541 seconds
+2026-03-19 23:53:19 - INFO - Question: Show me top 5 orders with customer company names and order dates
+2026-03-19 23:53:20 - INFO - Gemini response took 1.6960 seconds
+2026-03-19 23:53:20 - INFO - {'success': True, 'sql': 'SELECT TOP 5\n  C.CompanyName,\n  O.OrderDate,\n  O.OrderID\nFROM Orders AS O\nJOIN Customers AS C\n  ON O.CustomerID = C.CustomerID\nORDER BY\n  O.OrderDate DESC,\n  O.OrderID DESC;', 'error': None, 'gemini_time': 1.6959624290466309}
+2026-03-19 23:54:39 - INFO - Question: Show me top 5 orders with customer company names and order dates
+2026-03-19 23:54:41 - INFO - Gemini response took 1.9722 seconds
+2026-03-19 23:54:41 - INFO - Success: True
+2026-03-19 23:54:41 - INFO - SQL: SELECT TOP 5
+  C.CompanyName,
+  O.OrderDate
+FROM Orders AS O
+INNER JOIN Customers AS C
+  ON O.CustomerID = C.CustomerID
+ORDER BY
+  O.OrderID DESC
+2026-03-19 23:54:41 - INFO - Gemini time: 1.9722049236297607 seconds
+2026-03-20 17:39:40 - INFO - Question: How many customers from Germany?
+2026-03-20 17:39:40 - INFO - Question: How many customers from Germany?
+2026-03-20 17:40:30 - INFO - Question: How many customers from Germany?
+2026-03-20 17:40:30 - INFO - Question: How many customers from Germany?
+2026-03-20 17:49:52 - INFO - Question: How many customers in Germany?
+2026-03-20 17:49:52 - INFO - Question: How many customers in Germany?
+2026-03-20 17:49:54 - INFO - Gemini response took 1.7052 seconds
+2026-03-20 17:49:54 - INFO - SQL: SELECT COUNT(CustomerID) FROM Customers WHERE Country = 'Germany'
+2026-03-20 17:49:54 - INFO - Query execution took 0.0044 seconds
+2026-03-20 17:52:02 - INFO - Question: Show me top 5 customers by total order amount
+2026-03-20 17:52:02 - INFO - Question: Show me top 5 customers by total order amount
+2026-03-20 17:52:04 - INFO - Gemini response took 2.1341 seconds
+2026-03-20 17:52:04 - INFO - SQL: SELECT TOP 5
+  C.CustomerID,
+  C.CompanyName,
+  SUM(OD.UnitPrice * OD.Quantity * (
+    1 - OD.Discount
+  )) AS TotalOrderAmount
+FROM Customers AS C
+INNER JOIN Orders AS O
+  ON C.CustomerID = O.CustomerID
+INNER JOIN [Order Details] AS OD
+  ON O.OrderID = OD.OrderID
+GROUP BY
+  C.CustomerID,
+  C.CompanyName
+ORDER BY
+  TotalOrderAmount DESC;
+2026-03-20 17:52:04 - INFO - Query execution took 0.0489 seconds
+2026-03-20 17:52:19 - INFO - Question: Which employee handled the most orders?
+2026-03-20 17:52:19 - INFO - Question: Which employee handled the most orders?
+2026-03-20 17:52:21 - INFO - Gemini response took 1.9694 seconds
+2026-03-20 17:52:21 - INFO - SQL: SELECT TOP 1
+  E.FirstName,
+  E.LastName,
+  COUNT(O.OrderID) AS NumberOfOrdersHandled
+FROM Employees AS E
+JOIN Orders AS O
+  ON E.EmployeeID = O.EmployeeID
+GROUP BY
+  E.FirstName,
+  E.LastName
+ORDER BY
+  NumberOfOrdersHandled DESC;
+2026-03-20 17:52:21 - INFO - Query execution took 0.0220 seconds
+2026-03-20 17:52:29 - INFO - Question: Show me all orders that were delivered late
+2026-03-20 17:52:29 - INFO - Question: Show me all orders that were delivered late
+2026-03-20 17:52:31 - INFO - Gemini response took 2.3350 seconds
+2026-03-20 17:52:31 - INFO - SQL: SELECT TOP 100 OrderID, CustomerID, EmployeeID, OrderDate, RequiredDate, ShippedDate, ShipVia, Freight, ShipName, ShipAddress, ShipCity, ShipRegion, ShipPostalCode, ShipCountry FROM Orders WHERE ShippedDate > RequiredDate
+2026-03-20 17:52:31 - INFO - Query execution took 0.0159 seconds
+2026-03-20 17:55:10 - INFO - Question: Show me top 5 customers by total order amount
+2026-03-20 17:55:10 - INFO - Question: Show me top 5 customers by total order amount
+2026-03-20 17:55:12 - INFO - Gemini response took 2.4284 seconds
+2026-03-20 17:55:12 - INFO - SQL: SELECT TOP 5
+  C.CustomerID,
+  C.CompanyName,
+  SUM(OD.UnitPrice * OD.Quantity * (
+    1 - OD.Discount
+  )) AS TotalOrderAmount
+FROM Customers AS C
+INNER JOIN Orders AS O
+  ON C.CustomerID = O.CustomerID
+INNER JOIN [Order Details] AS OD
+  ON O.OrderID = OD.OrderID
+GROUP BY
+  C.CustomerID,
+  C.CompanyName
+ORDER BY
+  TotalOrderAmount DESC;
+2026-03-20 17:55:12 - INFO - Query execution took 0.0222 seconds
+2026-03-20 17:55:22 - INFO - Question: Show me top 5 customers by total order amount
+2026-03-20 17:55:25 - INFO - Gemini response took 2.6209 seconds
+2026-03-20 17:55:25 - INFO - SQL: SELECT TOP 5
+  C.CompanyName,
+  C.CustomerID,
+  SUM(OD.UnitPrice * OD.Quantity * (
+    1 - OD.Discount
+  )) AS TotalOrderAmount
+FROM Customers AS C
+JOIN Orders AS O
+  ON C.CustomerID = O.CustomerID
+JOIN [Order Details] AS OD
+  ON O.OrderID = OD.OrderID
+GROUP BY
+  C.CompanyName,
+  C.CustomerID
+ORDER BY
+  TotalOrderAmount DESC;
+2026-03-20 17:55:25 - INFO - Query execution took 0.0169 seconds
+2026-03-20 17:55:37 - INFO - Question: You: How many customers in Germany?
+2026-03-20 17:55:39 - INFO - Gemini response took 1.5837 seconds
+2026-03-20 17:55:39 - INFO - SQL: SELECT
+  COUNT(CustomerID)
+FROM Customers
+WHERE
+  Country = 'Germany';
+2026-03-20 17:55:39 - INFO - Query execution took 0.0061 seconds
+2026-03-20 17:57:09 - INFO - Question: You: How many customers in Germany?
+2026-03-20 17:57:10 - INFO - Gemini response took 1.7143 seconds
+2026-03-20 17:57:10 - INFO - SQL: SELECT COUNT(CustomerID) FROM Customers WHERE Country = 'Germany'
+2026-03-20 17:57:10 - INFO - Query execution took 0.0064 seconds
+2026-03-20 17:57:20 - INFO - Question: cls
+2026-03-20 17:57:55 - INFO - Question: How many customers in Germany?
+2026-03-20 17:57:56 - INFO - Gemini response took 1.4284 seconds
+2026-03-20 17:57:56 - INFO - SQL: SELECT COUNT(CustomerID) FROM Customers WHERE Country = 'Germany'
+2026-03-20 17:57:56 - INFO - Query execution took 0.0043 seconds
+2026-03-20 17:58:37 - INFO - Question: How many customers in Germany?
+2026-03-20 17:58:39 - INFO - Gemini response took 1.4744 seconds
+2026-03-20 17:58:39 - INFO - SQL: SELECT COUNT(CustomerID) FROM Customers WHERE Country = 'Germany'
+2026-03-20 17:58:39 - INFO - Query execution took 0.0098 seconds
+2026-03-20 18:00:00 - INFO - Question: How many customers in Germany?
+2026-03-20 18:00:02 - INFO - Gemini response took 1.7330 seconds
+2026-03-20 18:00:02 - INFO - SQL: SELECT COUNT(CustomerID) AS count FROM Customers WHERE Country = 'Germany'
+2026-03-20 18:00:02 - INFO - Query execution took 0.0103 seconds
+2026-03-20 18:01:36 - INFO - Question: Show me top 5 products by unit price
+2026-03-20 18:01:38 - INFO - Gemini response took 2.1674 seconds
+2026-03-20 18:01:38 - INFO - SQL: SELECT TOP 5 ProductName, UnitPrice FROM Products ORDER BY UnitPrice DESC
+2026-03-20 18:01:38 - INFO - Query execution took 0.0058 seconds
+2026-03-20 18:01:56 - INFO - Question: Show me top 5 customers by total order amount
+2026-03-20 18:01:59 - INFO - Gemini response took 2.2316 seconds
+2026-03-20 18:01:59 - INFO - SQL: SELECT TOP 5
+  C.CompanyName,
+  SUM(OD.UnitPrice * OD.Quantity * (
+    1 - OD.Discount
+  )) AS TotalOrderAmount
+FROM Customers AS C
+JOIN Orders AS O
+  ON C.CustomerID = O.CustomerID
+JOIN [Order Details] AS OD
+  ON O.OrderID = OD.OrderID
+GROUP BY
+  C.CompanyName
+ORDER BY
+  TotalOrderAmount DESC
+2026-03-20 18:01:59 - INFO - Query execution took 0.0339 seconds
+2026-03-20 18:02:38 - INFO - Question: Show me all orders that were delivered late
+2026-03-20 18:02:41 - INFO - Gemini response took 2.4864 seconds
+2026-03-20 18:02:41 - INFO - SQL: SELECT TOP 100
+  OrderID,
+  CustomerID,
+  EmployeeID,
+  OrderDate,
+  RequiredDate,
+  ShippedDate,
+  ShipVia,
+  Freight,
+  ShipName,
+  ShipAddress,
+  ShipCity,
+  ShipRegion,
+  ShipPostalCode,
+  ShipCountry
+FROM Orders
+WHERE
+  ShippedDate > RequiredDate;
+2026-03-20 18:02:41 - INFO - Query execution took 0.0071 seconds
+2026-03-20 18:05:40 - INFO - Question: - For date columns always use CAST(column AS DATE) to remove time portio
+2026-03-20 18:05:43 - INFO - Gemini response took 2.8089 seconds
+2026-03-20 18:05:43 - INFO - SQL: SELECT TOP 100 CompanyName FROM Customers
+2026-03-20 18:05:43 - INFO - Query execution took 0.0059 seconds
+2026-03-20 18:06:00 - INFO - Question: Show me all orders that were delivered late
+2026-03-20 18:06:02 - INFO - Gemini response took 2.0960 seconds
+2026-03-20 18:06:02 - INFO - SQL: SELECT
+  OrderID,
+  CustomerID,
+  EmployeeID,
+  CAST(OrderDate AS DATE) AS OrderDate,
+  CAST(RequiredDate AS DATE) AS RequiredDate,
+  CAST(ShippedDate AS DATE) AS ShippedDate
+FROM Orders
+WHERE
+  ShippedDate IS NOT NULL AND ShippedDate > RequiredDate;
+2026-03-20 18:06:02 - INFO - Query execution took 0.0073 seconds
+2026-03-20 18:09:53 - INFO - Question: Show top 10 orders by amount
+2026-03-20 18:09:56 - INFO - Gemini response took 3.0119 seconds
+2026-03-20 18:09:56 - INFO - SQL: SELECT TOP 10
+  od.OrderID,
+  SUM(od.UnitPrice * od.Quantity * (
+    1 - od.Discount
+  )) AS TotalAmount
+FROM "Order Details" AS od
+GROUP BY
+  od.OrderID
+ORDER BY
+  TotalAmount DESC;
+2026-03-20 18:09:56 - INFO - Query execution took 0.0072 seconds
+2026-03-20 21:54:40 - INFO - Question: Show me the best customers
+2026-03-20 21:54:42 - INFO - Gemini response took 2.7521 seconds
+2026-03-20 21:54:42 - INFO - SQL: SELECT TOP 100
+  C.CustomerID,
+  C.CompanyName,
+  SUM(OD.UnitPrice * OD.Quantity * (
+    1 - OD.Discount
+  )) AS TotalRevenue
+FROM Customers AS C
+JOIN Orders AS O
+  ON C.CustomerID = O.CustomerID
+JOIN [Order Details] AS OD
+  ON O.OrderID = OD.OrderID
+GROUP BY
+  C.CustomerID,
+  C.CompanyName
+ORDER BY
+  TotalRevenue DESC;
+2026-03-20 21:54:42 - INFO - Query execution took 0.0184 seconds
+2026-03-20 21:56:51 - INFO - Question: Show me recent orders
+2026-03-20 21:56:53 - INFO - Gemini response took 2.2357 seconds
+2026-03-20 21:56:53 - INFO - SQL: SELECT TOP 100
+  OrderID,
+  CAST(OrderDate AS DATE) AS OrderDate,
+  CustomerID,
+  EmployeeID,
+  Freight
+FROM Orders
+ORDER BY
+  OrderDate DESC
+2026-03-20 21:56:53 - INFO - Query execution took 0.0132 seconds
+2026-03-20 21:58:45 - INFO - Question: Show me slow products
+2026-03-20 21:58:48 - INFO - Gemini response took 2.7488 seconds
+2026-03-20 21:58:48 - INFO - SQL: SELECT TOP 100
+  p.ProductName,
+  SUM(od.Quantity) AS TotalQuantitySold
+FROM Products AS p
+INNER JOIN [Order Details] AS od
+  ON p.ProductID = od.ProductID
+GROUP BY
+  p.ProductName
+ORDER BY
+  TotalQuantitySold ASC;
+2026-03-20 21:58:48 - INFO - Query execution took 0.0427 seconds
+2026-03-20 22:02:51 - INFO - Question: Show me orders from 2030
+2026-03-20 22:02:54 - INFO - Gemini response took 2.3616 seconds
+2026-03-20 22:02:54 - INFO - SQL: SELECT TOP 100
+  OrderID,
+  CustomerID,
+  EmployeeID,
+  CAST(OrderDate AS DATE) AS OrderDate,
+  CAST(RequiredDate AS DATE) AS RequiredDate
+FROM Orders
+WHERE
+  YEAR(OrderDate) = 2030;
+2026-03-20 22:02:54 - INFO - Query execution took 0.0177 seconds
+2026-03-20 22:03:27 - INFO - Question: Show me customers from Antarctica
+2026-03-20 22:03:28 - INFO - Gemini response took 1.3580 seconds
+2026-03-20 22:03:28 - INFO - SQL: SELECT TOP 100 CustomerID, CompanyName, ContactName, City, Country FROM Customers WHERE Country = 'Antarctica'
+2026-03-20 22:03:28 - INFO - Query execution took 0.0145 seconds
+2026-03-20 22:04:04 - INFO - Question: Show me profitable products
+2026-03-20 22:04:08 - INFO - Gemini response took 3.2618 seconds
+2026-03-20 22:04:08 - INFO - SQL: SELECT TOP 100
+  p.ProductID,
+  p.ProductName,
+  SUM(od.Quantity * od.UnitPrice * (1 - od.Discount)) AS TotalRevenue
+FROM Products AS p
+JOIN "Order Details" AS od
+  ON p.ProductID = od.ProductID
+GROUP BY
+  p.ProductID,
+  p.ProductName
+ORDER BY
+  TotalRevenue DESC;
+2026-03-20 22:04:08 - INFO - Query execution took 0.0267 seconds
+2026-03-20 22:05:12 - INFO - Question: Show me VIP customers
+2026-03-20 22:05:15 - INFO - Gemini response took 3.1344 seconds
+2026-03-20 22:05:15 - INFO - SQL: SELECT TOP 10
+  c.CustomerID,
+  c.CompanyName,
+  c.ContactName,
+  c.City,
+  COUNT(o.OrderID) AS NumberOfOrders
+FROM Customers AS c
+JOIN Orders AS o
+  ON c.CustomerID = o.CustomerID
+GROUP BY
+  c.CustomerID,
+  c.CompanyName,
+  c.ContactName,
+  c.City
+ORDER BY
+  NumberOfOrders DESC;
+2026-03-20 22:05:15 - INFO - Query execution took 0.0115 seconds
+2026-03-20 22:06:27 - INFO - Question: What is our revenue trend?
+2026-03-20 22:06:34 - INFO - Gemini response took 6.8357 seconds
+2026-03-20 22:06:34 - INFO - SQL: SELECT TOP 100
+    YEAR(O.OrderDate) AS OrderYear,
+    MONTH(O.OrderDate) AS OrderMonth,
+    SUM(OD.UnitPrice * OD.Quantity * (1 - OD.Discount)) AS MonthlyRevenue
+FROM
+    Orders AS O
+JOIN
+    "Order Details" AS OD ON O.OrderID = OD.OrderID
+GROUP BY
+    YEAR(O.OrderDate),
+    MONTH(O.OrderDate)
+ORDER BY
+    OrderYear,
+    OrderMonth
+2026-03-20 22:06:34 - INFO - Query execution took 0.0340 seconds
+2026-03-20 22:07:56 - INFO - Question: cls
+2026-03-20 22:08:00 - INFO - Gemini response took 4.4551 seconds
+2026-03-20 22:08:00 - INFO - SQL: SELECT TOP 100 CustomerID, CompanyName, ContactName, City, Country FROM Customers
+2026-03-20 22:08:00 - INFO - Query execution took 0.0043 seconds
+2026-03-20 22:08:10 - INFO - Question: Show me customers
+2026-03-20 22:08:11 - INFO - Gemini response took 1.7661 seconds
+2026-03-20 22:08:11 - INFO - SQL: SELECT TOP 100 CustomerID, CompanyName, ContactName, City, Country FROM Customers
+2026-03-20 22:08:11 - INFO - Query execution took 0.0055 seconds
+2026-03-20 22:10:41 - INFO - Question: asdfjkl qwerty
+2026-03-20 22:10:44 - INFO - Gemini response took 2.6132 seconds
+2026-03-20 22:10:44 - INFO - SQL: SELECT TOP 100 CustomerID, CompanyName, ContactName, City, Country FROM Customers
+2026-03-20 22:10:44 - INFO - Query execution took 0.0034 seconds
+2026-03-20 22:22:23 - INFO - Question: Show me the best customers
+2026-03-20 22:22:26 - INFO - Gemini response took 2.9648 seconds
+2026-03-20 22:22:26 - INFO - SQL: SELECT TOP 10
+  C.CustomerID,
+  C.CompanyName,
+  SUM(OD.UnitPrice * OD.Quantity * (
+    1 - OD.Discount
+  )) AS TotalRevenue
+FROM Customers AS C
+JOIN Orders AS O
+  ON C.CustomerID = O.CustomerID
+JOIN "Order Details" AS OD
+  ON O.OrderID = OD.OrderID
+GROUP BY
+  C.CustomerID,
+  C.CompanyName
+ORDER BY
+  TotalRevenue DESC
+2026-03-20 22:22:26 - INFO - Query execution took 0.0138 seconds
+2026-03-20 22:23:04 - INFO - Question: Show me recent orders
+2026-03-20 22:23:06 - INFO - Gemini response took 2.2986 seconds
+2026-03-20 22:23:06 - INFO - SQL: SELECT TOP 10
+  OrderID,
+  CustomerID,
+  EmployeeID,
+  CAST(OrderDate AS DATE) AS OrderDate,
+  CAST(ShippedDate AS DATE) AS ShippedDate
+FROM Orders
+ORDER BY
+  OrderDate DESC
+2026-03-20 22:23:06 - INFO - Query execution took 0.0064 seconds
+2026-03-20 22:23:27 - INFO - Question: Show me slow products
+2026-03-20 22:23:30 - INFO - Gemini response took 3.2078 seconds
+2026-03-20 22:23:30 - INFO - SQL: SELECT TOP 10
+  p.ProductName,
+  SUM(od.Quantity) AS TotalQuantitySold
+FROM Products AS p
+JOIN "Order Details" AS od
+  ON p.ProductID = od.ProductID
+GROUP BY
+  p.ProductID,
+  p.ProductName
+ORDER BY
+  TotalQuantitySold ASC;
+2026-03-20 22:23:30 - INFO - Query execution took 0.0189 seconds
+2026-03-20 22:23:50 - INFO - Question: Show me customers
+2026-03-20 22:23:52 - INFO - Gemini response took 1.8474 seconds
+2026-03-20 22:23:52 - INFO - SQL: SELECT TOP 100 CustomerID, CompanyName, ContactName, City, Country FROM Customers
+2026-03-20 22:23:52 - INFO - Query execution took 0.0030 seconds
+2026-03-20 22:25:56 - INFO - Question: asdfjkl qwerty
+2026-03-20 22:25:59 - INFO - Gemini response took 2.4646 seconds
+2026-03-20 22:25:59 - INFO - SQL: NOT_A_DB_QUESTION
+2026-03-20 22:25:59 - ERROR - Error: (pyodbc.ProgrammingError) ('42000', "[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Could not find stored procedure 'NOT_A_DB_QUESTION'. (2812) (SQLExecDirectW)")
+[SQL: NOT_A_DB_QUESTION]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-03-20 22:25:59 - ERROR - Error: (pyodbc.ProgrammingError) ('42000', "[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Could not find stored procedure 'NOT_A_DB_QUESTION'. (2812) (SQLExecDirectW)")
+[SQL: NOT_A_DB_QUESTION]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-03-20 22:30:31 - INFO - Question: Show me customers
+2026-03-20 22:30:33 - INFO - Gemini response took 2.1130 seconds
+2026-03-20 22:30:33 - INFO - SQL: SELECT TOP 100 CustomerID, CompanyName, ContactName, City, Country FROM Customers
+2026-03-20 22:30:33 - INFO - Query execution took 0.0152 seconds
+2026-03-20 22:30:54 - INFO - Question: Show me customers
+2026-03-20 22:30:56 - INFO - Gemini response took 1.9932 seconds
+2026-03-20 22:30:56 - INFO - SQL: SELECT TOP 10 CustomerID, CompanyName, ContactName, City, Country FROM Customers
+2026-03-20 22:30:56 - INFO - Query execution took 0.0036 seconds
+2026-03-20 22:31:55 - INFO - Question: asdfjkl qwerty
+2026-03-20 22:31:57 - INFO - Gemini response took 1.9728 seconds
+2026-03-20 22:32:39 - INFO - Question: asdas asdsa dlklk jjasd il lkasdj give me top 10 customers
+2026-03-20 22:32:41 - INFO - Gemini response took 2.3360 seconds
+2026-03-20 22:32:41 - INFO - SQL: SELECT TOP 10 CustomerID, CompanyName, ContactName, City, Country FROM Customers ORDER BY CompanyName
+2026-03-20 22:32:41 - INFO - Query execution took 0.0087 seconds
+2026-03-20 22:41:19 - INFO - Question: asdas asdsa dlklk jjasd il lkasdj give me top 10 customers
+2026-03-20 22:41:21 - INFO - Gemini response took 2.0060 seconds
+2026-03-20 22:41:21 - INFO - SQL: EXTRACTED: give me top 10 customers
+SQL: SELECT TOP 10 CustomerID, CompanyName, ContactName, City, Country FROM Customers
+2026-03-20 22:41:21 - ERROR - Error: (pyodbc.ProgrammingError) ('42000', "[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Incorrect syntax near 'give'. (102) (SQLExecDirectW)")
+[SQL: EXTRACTED: give me top 10 customers
+SQL: SELECT TOP 10 CustomerID, CompanyName, ContactName, City, Country FROM Customers]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-03-20 22:41:21 - ERROR - Error: (pyodbc.ProgrammingError) ('42000', "[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Incorrect syntax near 'give'. (102) (SQLExecDirectW)")
+[SQL: EXTRACTED: give me top 10 customers
+SQL: SELECT TOP 10 CustomerID, CompanyName, ContactName, City, Country FROM Customers]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-03-20 22:44:02 - INFO - Question: asdas asdsa dlklk jjasd il lkasdj give me top 10 customers
+2026-03-20 22:44:05 - INFO - Gemini response took 3.0681 seconds
+2026-03-20 22:44:05 - INFO - SQL: EXTRACTED: give me top 10 customers
+SQL: SELECT TOP 10 CustomerID, CompanyName, ContactName, City, Country FROM Customers ORDER BY CompanyName
+2026-03-20 22:44:05 - ERROR - Error: (pyodbc.ProgrammingError) ('42000', "[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Incorrect syntax near 'give'. (102) (SQLExecDirectW)")
+[SQL: EXTRACTED: give me top 10 customers
+SQL: SELECT TOP 10 CustomerID, CompanyName, ContactName, City, Country FROM Customers ORDER BY CompanyName]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-03-20 22:44:05 - ERROR - Error: (pyodbc.ProgrammingError) ('42000', "[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Incorrect syntax near 'give'. (102) (SQLExecDirectW)")
+[SQL: EXTRACTED: give me top 10 customers
+SQL: SELECT TOP 10 CustomerID, CompanyName, ContactName, City, Country FROM Customers ORDER BY CompanyName]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-03-20 22:49:57 - INFO - Question: asdas asdsa dlklk jjasd il lkasdj give me top 10 customers
+2026-03-20 22:49:59 - INFO - Gemini response took 2.1882 seconds
+2026-03-20 22:49:59 - INFO - SQL: SELECT TOP 10 CustomerID, CompanyName, ContactName, City, Country FROM Customers
+2026-03-20 22:49:59 - INFO - Query execution took 0.0070 seconds
+2026-03-20 22:50:23 - INFO - Question: show me top 10 orders jkhkjasd jlkjkl asd sdas
+2026-03-20 22:50:25 - INFO - Gemini response took 1.8216 seconds
+2026-03-20 22:50:25 - INFO - SQL: SELECT TOP 10 OrderID, CustomerID, EmployeeID, CAST(OrderDate AS DATE), Freight FROM Orders
+2026-03-20 22:50:25 - INFO - Query execution took 0.0045 seconds
+2026-03-20 22:50:40 - INFO - Question: show me jkj jjkjasd jljklasd topo 10 orders
+2026-03-20 22:50:42 - INFO - Gemini response took 2.2219 seconds
+2026-03-20 22:50:42 - INFO - SQL: SELECT TOP 10 OrderID, CustomerID, EmployeeID, CAST(OrderDate AS DATE) AS OrderDate, Freight FROM Orders ORDER BY OrderID
+2026-03-20 22:50:42 - INFO - Query execution took 0.0037 seconds
