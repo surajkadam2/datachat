@@ -12,12 +12,13 @@ Type a question in plain English, get data back instantly.
 - Rich CLI
 
 ## Architecture
-claude.py    → Gemini AI interface
-db.py        → SQL Server connection + schema extraction
-safety.py    → Input validation + SQL validation + extraction
-prompt.py    → Schema caching + prompt building + SQL generation
-logger.py    → Dual logging (console + file)
-main.py      → CLI loop + command handling
+claude.py      → Gemini AI interface
+db.py          → SQL Server connection + schema extraction
+safety.py      → Input validation + SQL validation + extraction
+prompt.py      → Schema caching + prompt building + SQL generation
+logger.py      → Dual logging (console + file)
+explainer.py   → Plain English answers with grounding
+main.py        → CLI loop + command handling
 
 ## What makes it production-grade
 - Two layer safety validation
@@ -38,8 +39,8 @@ main.py      → CLI loop + command handling
 
 ## Known Limitations
 1. CustomerID shows codes not names in some queries
-2. Domain context not implemented — VIP/premium undefined  
-3. Follow-up questions maintain filters but may not restrict 
+2. Domain context not implemented — VIP/premium undefined
+3. Follow-up questions maintain filters but may not restrict
    to exact previous result set
 4. Schema pruning not implemented
 
