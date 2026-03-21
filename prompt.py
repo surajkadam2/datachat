@@ -2,6 +2,7 @@ import time
 from claude import ask_claude
 from safety import extract_sql, is_sql_safe
 from logger import log_question, log_execution_time, logger
+from config import TEMPERATURE_SQL, MAX_HISTORY_ITEMS
 
 # Schema cache
 _schema_cache = None
@@ -85,7 +86,7 @@ def build_full_prompt(question: str, schema: str, history: None) -> str:
     system_prompt = build_system_prompt(schema)
 
     # Keep only last 5 history items
-    history = history[-5:] if history else []
+    history = history[- MAX_HISTORY_ITEMS:] if history else []
 
     history_block = ""
     if history:
@@ -117,7 +118,7 @@ def ask_data_question(question: str, schema: str, history: list = []) -> dict:
         full_prompt = build_full_prompt(question, schema, history)
 
 
-        raw_response = ask_claude(full_prompt)
+        raw_response = ask_claude(full_prompt, temperature=TEMPERATURE_SQL)
 
         gemini_time = time.time() - start_time
         log_execution_time("Gemini response", gemini_time)

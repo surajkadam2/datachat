@@ -1,6 +1,7 @@
 import time
 from claude import ask_claude
 from logger import log_execution_time
+from config import MAX_ROWS_TO_EXPLAINER, TEMPERATURE_EXPLAIN
 
 
 def explain_results(question: str, rows: list, sql: str) -> str:
@@ -10,7 +11,7 @@ def explain_results(question: str, rows: list, sql: str) -> str:
     start_time = time.time()
 
     # Limit rows to first 20
-    limited_rows = rows[:20] if rows else []
+    limited_rows = rows[:MAX_ROWS_TO_EXPLAINER] if rows else []
 
     # Format rows as simple list
     rows_text = ""
@@ -43,7 +44,7 @@ Data:
 Provide a clear answer:
 """
 
-    response = ask_claude(prompt)
+    response = ask_claude(prompt, temperature=TEMPERATURE_EXPLAIN)
 
     execution_time = time.time() - start_time
     log_execution_time("Explanation generation", execution_time)

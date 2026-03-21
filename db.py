@@ -5,6 +5,7 @@ import warnings
 from dotenv import load_dotenv
 from sqlalchemy import create_engine, text,exc,inspect
 from logger import log_sql, log_execution_time, log_error, logger
+from config import QUERY_TIMEOUT_SECONDS, MAX_ROWS_RETURNED
 
 warnings.filterwarnings("ignore", category=exc.SAWarning)
 
@@ -93,15 +94,15 @@ def run_query(sql: str, timeout: int = 10):
         execution_time = time.time() - start_time
 
         # Check timeout
-        if execution_time > timeout:
-            raise TimeoutError(f"Query exceeded {timeout} seconds")
+        if execution_time > QUERY_TIMEOUT_SECONDS:
+            raise TimeoutError(f"Query exceeded {QUERY_TIMEOUT_SECONDS} seconds")
 
         row_count = len(rows)
 
         # Limit rows if more than 100
-        if row_count > 100:
-            logger.warning(f"Result truncated from {row_count} to 100 rows")
-            rows = rows[:100]
+        if row_count > MAX_ROWS_RETURNED:
+            logger.warning(f"Result truncated from {row_count} to {MAX_ROWS_RETURNED} rows")
+            rows = rows[:MAX_ROWS_RETURNED]
 
         log_execution_time("Query execution", execution_time)
 

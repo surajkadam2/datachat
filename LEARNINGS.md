@@ -46,3 +46,16 @@ This is Single Responsibility Principle in practice.
 Always verify test data before assuming AI hallucination.
 Bad test data = false bug report.
 Garbage in, garbage out applies to tests too.
+
+## Temperature
+- Controls randomness of AI output (0.0 to 1.0)
+- 0.0 = deterministic, same output every time
+- 1.0 = creative, different output every time
+- SQL generation = 0.0 (deterministic, reliable)
+- Plain English = 0.1 (slight variation, natural feel)
+- DataChat is data system not creative system → low temperature
+
+## Temperature danger
+Setting TEMPERATURE_SQL too high = inconsistent SQL generation
+= silent failures that are hard to reproduce and debug.
+Config values need comments explaining valid ranges.

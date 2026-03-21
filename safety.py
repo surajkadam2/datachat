@@ -1,10 +1,5 @@
 import re
-
-# Dangerous SQL keywords (case-insensitive)
-DANGEROUS_KEYWORDS = [
-    "DROP", "DELETE", "UPDATE", "INSERT", "TRUNCATE", "ALTER", "EXEC"
-]
-
+from config import DANGEROUS_INPUT_KEYWORDS, DANGEROUS_SQL_KEYWORDS
 
 def is_input_safe(user_input: str) -> bool:
     """
@@ -12,7 +7,7 @@ def is_input_safe(user_input: str) -> bool:
     Returns False if found, True if safe.
     """
     upper_input = user_input.upper()
-    return not any(keyword in upper_input for keyword in DANGEROUS_KEYWORDS)
+    return not any(keyword in upper_input for keyword in DANGEROUS_INPUT_KEYWORDS)
 
 
 def is_sql_safe(sql: str) -> bool:
@@ -21,7 +16,7 @@ def is_sql_safe(sql: str) -> bool:
     Returns False if found, True if safe.
     """
     upper_sql = sql.upper()
-    return not any(keyword in upper_sql for keyword in DANGEROUS_KEYWORDS)
+    return not any(keyword in upper_sql for keyword in DANGEROUS_SQL_KEYWORDS)
 
 
 def extract_sql(raw_response: str) -> str:

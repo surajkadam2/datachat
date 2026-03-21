@@ -8,13 +8,14 @@ from safety import is_input_safe
 from prompt import ask_data_question
 from db import run_query, get_schema
 from logger import log_question, log_error
+from config import APP_NAME, APP_VERSION, CLI_PROMPT
 
 console = Console()
 
 SYSTEM_COMMANDS = ['cls', 'clear', 'exit', 'help', 'explain', 'retry', 'edit']
 
 def print_welcome():
-    console.print("\n[bold cyan]💬 DataChat CLI[/bold cyan] [green]v1.0[/green]")
+    console.print(f"\n[bold cyan]💬 {APP_NAME}[/bold cyan] [green]{APP_VERSION}[/green]")
     console.print("[dim]Ask questions about your database in natural language[/dim]\n")
 
     console.print("[bold]Example questions:[/bold]")
@@ -72,7 +73,7 @@ def main():
 
     while True:
         try:
-            user_input = console.input("[bold blue]You:[/bold blue] ").strip()
+            user_input = console.input(f"[bold blue]{CLI_PROMPT}:[/bold blue] ").strip()
 
             if not user_input:
                 console.print("[yellow]Please ask a complete question.[/yellow]")
