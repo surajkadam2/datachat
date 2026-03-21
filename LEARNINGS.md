@@ -35,3 +35,14 @@
 System prompt = rules + schema only.
 Never inject runtime/user-specific data into system prompt.
 Runtime data belongs in conversation history or user message.
+
+## Architecture Principle
+Separate concerns into dedicated modules.
+One module = one responsibility.
+Makes testing, debugging, and changing easier.
+This is Single Responsibility Principle in practice.
+
+## Testing Principle
+Always verify test data before assuming AI hallucination.
+Bad test data = false bug report.
+Garbage in, garbage out applies to tests too.

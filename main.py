@@ -3,6 +3,7 @@ from rich.table import Table
 from rich import box
 import os
 
+from explainer import explain_results
 from safety import is_input_safe
 from prompt import ask_data_question
 from db import run_query, get_schema
@@ -181,6 +182,14 @@ def main():
 
             # Display
             display_results(rows, sql, gemini_time, execution_time)
+
+            # Add plain English explanation
+            explanation = explain_results(
+               question=user_input,
+               rows=rows,
+               sql=result['sql']
+            )
+            console.print(f"\n[green]💬 {explanation}[/green]\n")
 
         except Exception as e:
             log_error(str(e))
