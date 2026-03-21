@@ -72,10 +72,37 @@ def build_system_prompt(schema: str) -> str:
         EXTRACTED: <extracted question>
         SQL: <your sql here>
     - If no valid database question found, respond with: NOT_A_DB_QUESTION
+    - When user uses references like 'their', 'those', 'them', 'same', 'these' — maintain ALL filters, conditions, and  TOP N limits from the previous SQL exactly as they were. Do not broaden the scope.
     """
 
+def build_full_prompt(question: str, schema: str, history: None) -> str:
+    """
+    Builds full prompt including conversation history (last 5 only).
+    """
+    if history is None:
+        history = []
 
-def ask_data_question(question: str, schema: str) -> dict:
+    system_prompt = build_system_prompt(schema)
+
+    # Keep only last 5 history items
+    history = history[-5:] if history else []
+
+    history_block = ""
+    if history:
+        history_block = "Previous conversation:\n"
+        for item in history:
+            history_block += f"Q: {item['question']}\nSQL: {item['sql']}\n\n"
+
+    return f"""
+    {system_prompt}
+
+    {history_block}
+
+    User question:
+    {question}
+    """
+
+def ask_data_question(question: str, schema: str, history: list = []) -> dict:
     """
     Sends question to Gemini, extracts SQL, validates safety,
     and logs execution time.
@@ -85,14 +112,10 @@ def ask_data_question(question: str, schema: str) -> dict:
     try:
         #log_question(question)
 
-        system_prompt = build_system_prompt(schema)
+        #system_prompt = build_system_prompt(schema)
 
-        full_prompt = f"""
-        {system_prompt}
+        full_prompt = build_full_prompt(question, schema, history)
 
-        User question:
-        {question}
-        """
 
         raw_response = ask_claude(full_prompt)
 

@@ -67,6 +67,8 @@ def main():
     last_gemini_time = None
     last_execution_time = None
 
+    history = []  # ✅ NEW: conversation memory
+
     while True:
         try:
             user_input = console.input("[bold blue]You:[/bold blue] ").strip()
@@ -129,7 +131,7 @@ def main():
             log_question(user_input)
 
             # Ask AI
-            result = ask_data_question(user_input, schema)
+            result = ask_data_question(user_input, schema, history)
 
             if not result["success"]:
                 console.print(f"[bold red]Error:[/bold red] {result['error']}")
@@ -166,6 +168,16 @@ def main():
             last_sql = sql
             last_gemini_time = gemini_time
             last_execution_time = execution_time
+
+            # ✅ Update history
+            history.append({
+                "question": user_input,
+                "sql": sql
+            })
+
+            # ✅ Sliding window (max 5)
+            if len(history) > 5:
+                history.pop(0)
 
             # Display
             display_results(rows, sql, gemini_time, execution_time)
