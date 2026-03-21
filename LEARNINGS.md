@@ -30,15 +30,6 @@
 - Mutable defaults are shared across all function calls
 - Silent bug — very hard to find in production
 
-- System prompt is for rules and schema — never for runtime data.
-
-## Known Limitations
-- Follow-up questions using 'their'/'those' maintain 
-  country/category filters but may not restrict to 
-  exact previous result set.
-- Full precision follow-ups require explicit re-stating: 
-  "Show revenue for ALFKI, BLAUS, DRACD, FRANK, KOENE"
-- Planned fix in v2.0: result context passing
 
 ## Architecture Principle learned
 System prompt = rules + schema only.

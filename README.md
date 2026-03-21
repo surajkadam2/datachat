@@ -38,8 +38,9 @@ main.py      → CLI loop + command handling
 
 ## Known Limitations
 1. CustomerID shows codes not names in some queries
-2. Domain context not implemented — VIP/premium undefined
-3. No conversation memory yet
+2. Domain context not implemented — VIP/premium undefined  
+3. Follow-up questions maintain filters but may not restrict 
+   to exact previous result set
 4. Schema pruning not implemented
 
 ## Bug Fixes Log
