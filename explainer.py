@@ -6,21 +6,37 @@ from config import MAX_ROWS_TO_EXPLAINER, TEMPERATURE_EXPLAIN
 
 def explain_results(question: str, rows: list, sql: str) -> str:
     """
-    Generates a natural language explanation of query results.
+    Generates a concise natural language explanation of query results.
+    
+    Takes raw query results and the original question, then uses Claude to generate
+    a short, human-friendly summary. Always uses lower temperature to ensure factual
+    consistency with the provided data. Limits rows to prevent token waste on large
+    result sets beyond what needs explanation.
+    
+    Args:
+        question (str): The original user question that prompted the query.
+        rows (list): List of result dictionaries from the database query.
+        sql (str): The SQL query that was executed (for context).
+        
+    Returns:
+        str: A 2-3 sentence plain English explanation of the query results.
+        
+    Raises:
+        Exception: If Claude API call fails.
     """
     start_time = time.time()
 
-    # Limit rows to first 20
+    # Limit rows to prevent excessive token usage; sample of data is sufficient for explanation
     limited_rows = rows[:MAX_ROWS_TO_EXPLAINER] if rows else []
 
-    # Format rows as simple list
+    # Format rows as simple list for Claude to parse easily
     rows_text = ""
     if not limited_rows:
         rows_text = "[]"
     else:
         rows_text = "\n".join([str(row) for row in limited_rows])
 
-    # Build prompt
+    # Build prompt with clear instructions for brevity and factuality
     prompt = f"""
 You are a data analyst.
 

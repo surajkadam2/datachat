@@ -1,3 +1,18 @@
+"""Application configuration constants for DataChat.
+
+This module centralizes constants that govern AI model settings, database limits,
+security checks, explanation behavior, memory settings, and user interface
+branding for the DataChat application.
+
+Sections:
+    - AI CONFIGURATION: model names, temperature, token limits
+    - DATABASE CONFIGURATION: timeouts and row limits
+    - SAFETY CONFIGURATION: blocked SQL/input keywords
+    - EXPLAINER CONFIGURATION: row and sentence caps for explanations
+    - MEMORY CONFIGURATION: conversation history buffer size
+    - UI CONFIGURATION: CLI branding settings
+"""
+
 # =========================
 # AI CONFIGURATION
 # Controls model behavior for SQL generation and explanations

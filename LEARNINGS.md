@@ -81,3 +81,9 @@ Config values need comments explaining valid ranges.
 - Security rules must NEVER rely on prompt instructions alone
 - Always use hard coded checks for safety critical logic
 - Prompts control behavior. Code enforces safety.
+
+## Robust Evals
+- Never assert exact column names from AI generated SQL
+- Assert values not structure
+- list(rows[0].values())[0] is more resilient than rows[0]['count']
+- Brittle evals break on improvements, not just regressions

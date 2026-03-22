@@ -76,3 +76,9 @@ main.py        → CLI loop + command handling
 - Northwind = perfect seed data (static, diverse, realistic)
 - Absolute assertions safe only with static test data
 - Production DB = relative assertions or snapshot testing
+
+## Code Quality
+- All functions documented with Google-style docstrings
+- Inline comments explain decisions not mechanics
+- Type hints on all function signatures
+- Single responsibility principle throughout

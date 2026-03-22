@@ -89,19 +89,19 @@ def test_correctness_evals():
     # Tests
     run_test(
         "How many customers from Germany?",
-        lambda rows, rc: (rows and rows[0].get("count") == 11, f"Expected 11, got {rows}"),
+        lambda rows, rc: (rows and list(rows[0].values()) == [11], f"Expected 11, got {rows}"),
         "Customers from Germany"
     )
 
     run_test(
         "How many products are there?",
-        lambda rows, rc: (rows and rows[0].get("count") == 77, f"Expected 77, got {rows}"),
+        lambda rows, rc: (rows and list(rows[0].values()) == [77], f"Expected 77, got {rows}"),
         "Total products"
     )
 
     run_test(
         "How many employees are there?",
-        lambda rows, rc: (rows and rows[0].get("count") == 9, f"Expected 9, got {rows}"),
+        lambda rows, rc: (rows and list(rows[0].values()) == [9], f"Expected 9, got {rows}"),
         "Total employees"
     )
 
