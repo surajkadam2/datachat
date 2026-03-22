@@ -32,7 +32,7 @@ if not logger.handlers:
 
     # Add handlers
     logger.addHandler(file_handler)
-    logger.addHandler(console_handler)
+    #logger.addHandler(console_handler)
 
 
 def log_question(question: str):
