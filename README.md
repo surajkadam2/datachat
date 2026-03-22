@@ -59,3 +59,7 @@ main.py        → CLI loop + command handling
 - Two layer safety: input layer + SQL layer
 - Lazy loading pattern
 - Dual logging pattern
+
+## eval
+- DataChat passes 15 automated tests including exact correctness checks against known data.
+- System prompt rules compete with training data patterns. Strong training patterns can win.

@@ -59,3 +59,25 @@ Garbage in, garbage out applies to tests too.
 Setting TEMPERATURE_SQL too high = inconsistent SQL generation
 = silent failures that are hard to reproduce and debug.
 Config values need comments explaining valid ranges.
+
+## 2026-03-22 - Day 10
+- Temperature: 0.0 for SQL, 0.1 for explanation
+- Externalized configuration pattern
+- Config values need valid range comments
+- Never set TEMPERATURE_SQL above 0.2
+- Caught: safety keywords not using config — self-fixed
+
+## 2026-03-22 - Day 11
+- Evals used for testing of output
+- Functional eval - does it returns data
+- Correctness eval - does it returns correct data
+- Safety eval - is input safe
+
+## Prompt instructions vs training data
+- System prompt rules compete with training patterns
+- Strong training patterns can override weak prompt rules
+- Example: "return France" instruction lost to 
+  "Germany query" training pattern
+- Security rules must NEVER rely on prompt instructions alone
+- Always use hard coded checks for safety critical logic
+- Prompts control behavior. Code enforces safety.
