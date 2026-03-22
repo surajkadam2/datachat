@@ -63,3 +63,16 @@ main.py        → CLI loop + command handling
 ## eval
 - DataChat passes 15 automated tests including exact correctness checks against known data.
 - System prompt rules compete with training data patterns. Strong training patterns can win.
+
+## Testing Strategy
+- Evals run against Northwind — a static test database.
+- Absolute correctness assertions are safe because test data never changes.
+- For production databases: use relative assertions or dedicated test DB with fixed seed data.
+
+## Test Data Strategy
+- Never run evals against production DB
+- Use dedicated test DB with seed data
+- Seed data covers: happy path, edge cases, false positives
+- Northwind = perfect seed data (static, diverse, realistic)
+- Absolute assertions safe only with static test data
+- Production DB = relative assertions or snapshot testing
