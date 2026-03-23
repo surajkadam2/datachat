@@ -88,7 +88,7 @@ pip install -r requirements.txt
 **4. Configure environment**
 ```bash
 cp .env.example .env
-# Edit .env with your API key and DB connection string
+# Edit .env with your API key and DB connection strings
 ```
 
 **5. Set up Northwind database**
